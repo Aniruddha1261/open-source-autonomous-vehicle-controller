@@ -55,24 +55,40 @@ Required materials
 - Connect the micro-USB port of the OSAVC to the USB port of the Raspberry Pi 4
 - Power the Raspberry Pi 4 using the USB-C port with the power supply
 - Open an SSH tunnel from your PC to the Raspberry Pi 4 by typing ssh [username]@[hostname].local in your PC terminal
-  - sudo raspi-config
-  - Select 5 Interfacing Options
-  - Select P3 VNC
-  - Click Yes to enabling the VNC server
-  - Save your changes
+
+```sh
+   sudo raspi-config
+```
+  
+- Select 5 Interfacing Options
+- Select P3 VNC
+- Click Yes to enabling the VNC server
+- Save your changes
 - Open VNC Viewer and connect to [hostname].local at the top
 
 ![RealVNC Viewer](../assets/images/CompanionComputers/CC4.png)
 
 - Install opencv and its dependencies
-  - sudo apt-get update
-  - sudo apt install python3-opencv
+
+```bash
+sudo apt-get update
+sudo apt install python3-opencv
+```
+
 - Install pymavlink
-  - sudo pip3 install pymavlink
+
+```bash
+sudo pip3 install pymavlink
+```
+
 - Install a serial terminal on the Raspberry Pi 4
-  - sudo apt-get install minicom
-  - minicom -b 115200 -o -D /dev/ttyUSB0
-  - Press Ctrl-A Z to get the Mincom Command Summary dialog
+
+```bash
+sudo apt-get install minicom
+minicom -b 115200 -o -D /dev/ttyUSB0
+```
+
+- Press Ctrl-A Z to get the Mincom Command Summary dialog
 
 ![Mincom](../assets/images/CompanionComputers/CC5.png)
 
@@ -87,27 +103,25 @@ Required materials
 
 - Save by pressing Enter and exit the Minicom Command Summary
 - Click on the OSAVC’s reset button
-- Press h to transmit a Mavlink heartbeat message from the OSAVC to the Raspberry Pi 4 and then press q to quit
+- Press h to transmit a Mavlink heartbeat message from the OSAVC to the Raspberry Pi 4 and then press Enter
 
 ![Hardware Flow Control](../assets/images/CompanionComputers/CC8.png)
 
 - Create a new terminal tab, delete the Minicom terminal tab
 - In the new terminal, enter
 
-```sh
+```bash
 git clone https://github.com/uccross/open-source-autonomous-vehicle-controller.git
+cd open-source-autonomous-vehicle-controller/companion-computer
+git clone -b dev_raspi https://github.com/25ChilingH/PositioningSystem
+cd Positioning System/yolov5
+pip3 install -r requirements.txt
 ```
 
-```sh
-cd open-source-autonomous-vehicle-controller
-```
+- Follow the Linux installation directions [here](https://coral.ai/docs/accelerator/get-started/)
 
-```sh
-cd companion-computer
-```
-
-```sh
-sudo python3 OSAVC_web_server_rpi.py
+```bash
+python3 OSAVC_web_server_rpi.py
 ```
 
 - Open http://0.0.0.0:80/ in Chromium by right clicking the link and clicking Open URL.
@@ -124,7 +138,7 @@ sudo python3 OSAVC_web_server_rpi.py
 
 ![Target Component](../assets/images/CompanionComputers/CC11.png)
 
-![Target Component](../assets/images/CompanionComputers/CC12.png)
+![Target Component](../assets/images/CompanionComputers/CC12.jpg)
 
 - Finally, click the Connected button again, and the MAVstatus should become Connected
 
