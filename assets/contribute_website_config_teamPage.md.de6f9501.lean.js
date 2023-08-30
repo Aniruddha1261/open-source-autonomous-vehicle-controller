@@ -1,17 +1,30 @@
-import { a as VPTeamPageTitle, V as VPTeamMembers, b as VPTeamPageSection, c as VPTeamPage } from "./chunks/theme.97e80fa4.js";
-import { o as openBlock, c as createElementBlock, J as createVNode, E as withCtx, b as unref, a as createTextVNode } from "./chunks/framework.ce59e187.js";
-const __pageData = JSON.parse('{"title":"","description":"","frontmatter":{"layout":"page"},"headers":[],"relativePath":"projects/team.md"}');
-const __default__ = { name: "projects/team.md" };
+import { V as VPTeamMembers } from "./chunks/theme.24b54ae4.js";
+import { o as openBlock, c as createElementBlock, J as createVNode, b as unref, V as createStaticVNode, C as createBaseVNode, a as createTextVNode } from "./chunks/framework.ce59e187.js";
+const _hoisted_1 = /* @__PURE__ */ createStaticVNode("", 6);
+const _hoisted_7 = /* @__PURE__ */ createStaticVNode("", 17);
+const _hoisted_24 = /* @__PURE__ */ createBaseVNode("h3", {
+  id: "contributors",
+  tabindex: "-1"
+}, [
+  /* @__PURE__ */ createTextVNode("Contributors "),
+  /* @__PURE__ */ createBaseVNode("a", {
+    class: "header-anchor",
+    href: "#contributors",
+    "aria-label": 'Permalink to "Contributors"'
+  }, "​")
+], -1);
+const _hoisted_25 = /* @__PURE__ */ createStaticVNode("", 2);
+const __pageData = JSON.parse('{"title":"Team Page","description":"","frontmatter":{},"headers":[],"relativePath":"contribute/website/config/teamPage.md"}');
+const __default__ = { name: "contribute/website/config/teamPage.md" };
 const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
   setup(__props) {
-    const founders = [
+    const members = [
       {
         avatar: "https://avatars.githubusercontent.com/u/7852021?v=4",
         name: "Aaron Hunter",
         title: "PhD student at University of California Santa Cruz",
         links: [
           { icon: "github", link: "https://github.com/2ahunter" }
-          // { icon: 'linkedin', link: '' }
         ]
       },
       {
@@ -24,7 +37,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
         ]
       }
     ];
-    const contributor = [
+    const contributors = [
       {
         avatar: "https://avatars.githubusercontent.com/u/84729149?v=4",
         name: "Aniruddha Thakre",
@@ -55,37 +68,22 @@ const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
     ];
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", null, [
-        createVNode(unref(VPTeamPage), null, {
-          default: withCtx(() => [
-            createVNode(unref(VPTeamPageTitle), null, {
-              title: withCtx(() => [
-                createTextVNode(" Our Team ")
-              ]),
-              lead: withCtx(() => [
-                createTextVNode(" Founders ")
-              ]),
-              _: 1
-            }),
-            createVNode(unref(VPTeamMembers), {
-              size: "medium",
-              members: founders
-            }),
-            createVNode(unref(VPTeamPageSection), null, {
-              title: withCtx(() => [
-                createTextVNode("Contributors")
-              ]),
-              lead: withCtx(() => []),
-              members: withCtx(() => [
-                createVNode(unref(VPTeamMembers), {
-                  size: "small",
-                  members: contributor
-                })
-              ]),
-              _: 1
-            })
-          ]),
-          _: 1
-        })
+        _hoisted_1,
+        createVNode(unref(VPTeamMembers), {
+          size: "small",
+          members
+        }),
+        _hoisted_7,
+        createVNode(unref(VPTeamMembers), {
+          size: "medium",
+          members
+        }),
+        _hoisted_24,
+        createVNode(unref(VPTeamMembers), {
+          size: "small",
+          members: contributors
+        }),
+        _hoisted_25
       ]);
     };
   }
